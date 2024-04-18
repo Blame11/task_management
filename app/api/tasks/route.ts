@@ -2,7 +2,14 @@ import prisma from "@/app/utils/connect";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+/**
+ * Creates a new task
+ *
+ * @param {Request} req The request object from Next.js
+ * @returns {Promise<NextResponse | any>} A Promise that resolves to a
+ * NextResponse or an object with error and status properties
+ */
+export async function POST(req: Request): Promise<NextResponse | any> {
   try {
     const { userId } = auth();
 
@@ -43,6 +50,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Error creating task", status: 500 });
   }
 }
+
 
 export async function GET(req: Request) {
   try {

@@ -5,22 +5,36 @@ import React from "react";
 import styled from "styled-components";
 import formatDate from "@/app/utils/formatDate";
 
+/**
+ * This is the task item component. It is used to render a single task in the
+ * task list.
+ */
 interface Props {
+  /** The title of the task */
   title: string;
+  /** The description of the task */
   description: string;
+  /** The date when the task is supposed to be completed */
   date: string;
+  /** Whether the task is completed or not */
   isCompleted: boolean;
+  /** The id of the task */
   id: string;
 }
 
 function TaskItem({ title, description, date, isCompleted, id }: Props) {
   const { theme, deleteTask, updateTask } = useGlobalState();
+
   return (
     <TaskItemStyled theme={theme}>
+      {/* The title of the task */}
       <h1>{title}</h1>
+      {/* The description of the task */}
       <p>{description}</p>
+      {/* The date when the task is supposed to be completed */}
       <p className="date">{formatDate(date)}</p>
       <div className="task-footer">
+        {/* Mark the task as completed or incomplete */}
         {isCompleted ? (
           <button
             className="completed"
@@ -50,7 +64,9 @@ function TaskItem({ title, description, date, isCompleted, id }: Props) {
             Incomplete
           </button>
         )}
+        {/* Edit the task */}
         <button className="edit">{edit}</button>
+        {/* Delete the task */}
         <button
           className="delete"
           onClick={() => {
@@ -120,3 +136,4 @@ const TaskItemStyled = styled.div`
 `;
 
 export default TaskItem;
+

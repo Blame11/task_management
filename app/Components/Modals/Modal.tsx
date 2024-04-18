@@ -7,13 +7,21 @@ interface Props {
   content: React.ReactNode;
 }
 
+/**
+ * A Modal component that renders a fullscreen overlay with a content passed to it.
+ * The user can close the modal by clicking on the overlay or pressing the ESC key.
+ */
 function Modal({ content }: Props) {
   const { closeModal } = useGlobalState();
 
   const { theme } = useGlobalState();
+
+  // Render the Modal with the content passed to it
   return (
     <ModalStyled theme={theme}>
+      {/* The overlay that closes the modal when clicked */}
       <div className="modal-overlay" onClick={closeModal}></div>
+      {/* The content of the modal */}
       <div className="modal-content">{content}</div>
     </ModalStyled>
   );

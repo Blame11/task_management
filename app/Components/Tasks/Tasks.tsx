@@ -8,18 +8,29 @@ import { add, plus } from "@/app/utils/Icons";
 import Modal from "../Modals/Modal";
 
 interface Props {
+  // The title of the tasks component
   title: string;
+  // The tasks to display
   tasks: any[];
 }
 
+/**
+ * The tasks component.
+ *
+ * @param {Props} props The component props.
+ * @returns {JSX.Element} The tasks component.
+ */
 function Tasks({ title, tasks }: Props) {
   const { theme, isLoading, openModal, modal } = useGlobalState();
 
   return (
     <TaskStyled theme={theme}>
+      {/* If the modal is open, display it */}
       {modal && <Modal content={<CreateContent />} />}
+      {/* Display the component title */}
       <h1>{title}</h1>
 
+      {/* Display the add task button */}
       <button className="btn-rounded" onClick={openModal}>
         {plus}
       </button>
@@ -135,3 +146,5 @@ const TaskStyled = styled.main`
 `;
 
 export default Tasks;
+
+

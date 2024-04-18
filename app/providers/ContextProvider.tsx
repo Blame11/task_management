@@ -7,6 +7,10 @@ interface Props {
   children: React.ReactNode;
 }
 
+/**
+ * This component is used to wrap the app with the global context provider and toaster.
+ * It also adds a loading spinner while the app is not ready.
+ */
 function ContextProvider({ children }: Props) {
   const [isReady, setIsReady] = React.useState(false);
 
@@ -33,3 +37,4 @@ function ContextProvider({ children }: Props) {
 }
 
 export default ContextProvider;
+

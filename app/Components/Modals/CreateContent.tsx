@@ -7,15 +7,22 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import { add, plus } from "@/app/utils/Icons";
 
+/**
+ * CreateContent component
+ * This is where the user can create a task
+ */
 function CreateContent() {
+  // Local state to store input values
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [completed, setCompleted] = useState(false);
   const [important, setImportant] = useState(false);
 
+  // Global state
   const { theme, allTasks, closeModal } = useGlobalState();
 
+  // Handle input changes
   const handleChange = (name: string) => (e: any) => {
     switch (name) {
       case "title":
@@ -38,9 +45,11 @@ function CreateContent() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    // Create a task object
     const task = {
       title,
       description,
@@ -138,6 +147,7 @@ function CreateContent() {
     </CreateContentStyled>
   );
 }
+
 
 const CreateContentStyled = styled.form`
   > h1 {

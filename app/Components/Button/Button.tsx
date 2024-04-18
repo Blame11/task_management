@@ -4,20 +4,42 @@ import { useGlobalState } from "@/app/context/globalProvider";
 import React from "react";
 import styled from "styled-components";
 
+/**
+ * The button component.
+ *
+ * @interface Props The component props.
+ */
 interface Props {
+  /** The icon to display in the button. */
   icon?: React.ReactNode;
+  /** The name of the button. */
   name?: string;
+  /** The background-color of the button. */
   background?: string;
+  /** The padding of the button. */
   padding?: string;
+  /** The border-radius of the button. */
   borderRad?: string;
+  /** The font-weight of the button. */
   fw?: string;
+  /** The font-size of the button. */
   fs?: string;
+  /** The click handler of the button. */
   click?: () => void;
+  /** The type of the button, can be submit, button or reset. */
   type?: "submit" | "button" | "reset" | undefined;
+  /** The border of the button. */
   border?: string;
+  /** The color of the button text. */
   color?: string;
 }
 
+/**
+ * The button component.
+ *
+ * @param {Props} props The component props.
+ * @returns {JSX.Element} The button component.
+ */
 function Button({
   icon,
   name,
@@ -53,6 +75,7 @@ function Button({
     </ButtonStyled>
   );
 }
+
 
 const ButtonStyled = styled.button`
   position: relative;

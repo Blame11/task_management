@@ -1,25 +1,46 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// A Prisma model represents a table or collection in your database
+// This generated code will be updated when you run the "prisma generate" command
+
+// The name of your Prisma model is 'Task'
+// The @@map decorator specifies the name of the table or collection in the database (by default, Prisma creates tables or collections with the same name as the model)
+
 generator client {
   provider = "prisma-client-js"
 }
 
+// The datasource defines the database provider (in this case mongodb) and connection string
 datasource db {
   provider = "mongodb"
+  // The env() function reads environment variables from your .env file
   url      = env("DATABASE_URL")
 }
 
-
-model Task{
+// Task is the name of your Prisma model
+model Task {
+  // @id specifies a unique identifier for each object in the database (and is used for querying and other operations)
+  // @default(cuid()) specifies a default value for the id field using the cuid() function from the cuid library
+  // @map("_id") maps the id field to the _id field in the database
   id          String    @id @default(cuid()) @map("_id")
+
+  // The fields of your Prisma model
   title       String
-  description String?
+  description String?   // The ? makes the field optional
   date        String
+
+  // @default(false) specifies a default value for fields (in this case, false)
   isCompleted Boolean   @default(false)
   isImportant Boolean   @default(false)
 
+  // @default(now()) specifies a default value for fields (in this case, the current date and time)
   createdAt   DateTime  @default(now()) @map("created_at")
+
+  // @updatedAt specifies that this field should be updated when the object is updated
+  // @default(now()) specifies a default value for fields (in this case, the current date and time)
   updatedAt   DateTime  @default(now()) @updatedAt @map("updated_at")
+
+  // A foreign key to the User model
   userId      String    
 }

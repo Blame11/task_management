@@ -1,3 +1,7 @@
+/**
+ * The sidebar component, which contains the navigation menu, the user profile
+ * and the sign out button.
+ */
 "use client";
 import React from "react";
 import styled from "styled-components";
@@ -32,15 +36,23 @@ function Sidebar() {
 
   return (
     <SidebarStyled theme={theme} collapsed={collapsed}>
-      <button className="toggle-nav" onClick={collapseMenu}>
+      {/* Toggle button, which triggers the collapseMenu function from the
+      global state. */}
+      <button
+        className="toggle-nav"
+        onClick={collapseMenu}
+        aria-label="Toggle navigation"
+      >
         {collapsed ? bars : arrowLeft}
       </button>
       <div className="profile">
         <div className="profile-overlay"></div>
         <div className="image">
+          {/* The user profile image */}
           <Image width={70} height={70} src={imageUrl} alt="profile" />
         </div>
         <div className="user-btn absolute z-20 top-0 w-full h-full">
+          {/* The Clerk user button component */}
           <UserButton />
         </div>
         <h1 className="capitalize">
@@ -48,6 +60,8 @@ function Sidebar() {
         </h1>
       </div>
       <ul className="nav-items">
+        {/* The navigation menu, which contains links to the different pages.
+        We map over the menu and display each item. */}
         {menu.map((item) => {
           const link = item.link;
           return (
@@ -65,6 +79,8 @@ function Sidebar() {
         })}
       </ul>
       <div className="sign-out relative m-6">
+        {/* The sign out button, which triggers the signOut function from the
+        Clerk provider. */}
         <Button
           name={"Sign Out"}
           type={"submit"}
@@ -81,6 +97,7 @@ function Sidebar() {
     </SidebarStyled>
   );
 }
+
 
 const SidebarStyled = styled.nav<{ collapsed: boolean }>`
   position: relative;

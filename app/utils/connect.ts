@@ -1,5 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 
+/**
+ * @description Prisma client is created once and stored in the global scope for the entire process
+ * This allows for better performance and reduced overhead when connecting to the database.
+ * In production, a new client is created for each request, but in development we reuse the same
+ * client for all requests to simplify development.
+ */
 let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === "production") {
@@ -15,3 +21,4 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default prisma;
+
