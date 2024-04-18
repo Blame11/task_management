@@ -8,12 +8,6 @@ Task Management is a simple web app that allows you to create, edit, and delete 
 - Dark mode support
 - Responsive design
 
-## Screenshots
-
-![Tasks List](https://user-images.githubusercontent.com/11993528/163480659-7fb21942-521b-4883-8a0b-338d41afb86e.png)
-
-![Edit Task](https://user-images.githubusercontent.com/11993528/163480664-188c1511-4364-4189-a25b-9d270a923c78.png)
-
 ## Run Locally
 
 Clone the project
