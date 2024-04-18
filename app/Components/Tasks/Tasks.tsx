@@ -23,8 +23,7 @@ function Tasks({ title, tasks }: Props) {
       <button className="btn-rounded" onClick={openModal}>
         {plus}
       </button>
-
-      <div className="tasks grid">
+      {!isLoading ? (<div className="tasks grid">
         {tasks.map((task) => (
           <TaskItem
             key={task.id}
@@ -40,6 +39,11 @@ function Tasks({ title, tasks }: Props) {
           Add New Task
         </button>
       </div>
+      ) : ( 
+      <div className="w-full h-full flex items-center justify-center">
+        <span className="loader"></span>
+      </div>
+      )}
     </TaskStyled>
   );
 }
