@@ -14,8 +14,41 @@ Clone the project
 
 
 1. Run `npm install` or `yarn` to install the project dependencies
-2. Create a `.env` file and add your MongoDB connection string, for example: `DATABASE_URL=mongodb://localhost:27017/mytasks`
-3. Create a `.env.local` file and add your clerk token, for example: 
+2. Install axios with `npm install axios`
+3. Install react-hot-toast run `npm install react-hot-toast` or `yard add react-hot-toast`
+4. Run `npm install nextjs-toploader` to install nextJS toploader
+5. Run `npm install styled-components` to install styled components
+
+## Backend
+
+Setting Up Prisma with MongoDB
+
+1. To get started with Prisma Client, you need to install the @prisma/client package:
+
+     `npm install @prisma/client`
+   
+2. Next, set up your Prisma project by creating your Prisma schema file with the following command:
+
+    `npx prisma init`
+
+    This command does two things:
+
+    creates a new directory called prisma that contains a file called `schema.prisma`, which contains the Prisma schema with your database connection variable and schema models
+    creates the `.env` file in the root directory of the project, which is used for defining environment variables (such as your database connection)
+
+3. Install `@clerk/nextjs`
+   Clerk's Next.js SDK has prebuilt components, React hooks, and helpers to make user authentication easier.
+
+   To get started using Clerk with Next.js, add the SDK to your project:
+
+    `npm install @clerk/nextjs`
+
+
+
+
+
+Create a `.env` file and add your MongoDB connection string, for example: `DATABASE_URL=mongodb://localhost:27017/mytasks`
+Create a `.env.local` file and add your clerk token, for example: 
     `
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<public Key>
     CLERK_SECRET_KEY=<secret key>
