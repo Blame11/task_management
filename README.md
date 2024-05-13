@@ -124,6 +124,7 @@ bun dev
 `npx prisma studio`
 
 Open [http://localhost:5555](http://localhost:5555) with your browser to see the Prisma Studio.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the Web Application.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
