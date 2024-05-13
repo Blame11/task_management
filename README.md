@@ -106,7 +106,7 @@ Setting Up Prisma with MongoDB
     NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=/signin
 
    
-###First, run the development server:
+### First, run the development server:
 
 ```bash
 npm run dev
@@ -117,7 +117,7 @@ pnpm dev
 # or
 bun dev
 ```
-###Now run the prisma studio:
+### Now run the prisma studio:
 `npx prisma studio`
 
 Open [http://localhost:5555](http://localhost:5555) with your browser to see the Prisma Studio.
