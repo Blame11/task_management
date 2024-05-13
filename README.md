@@ -49,13 +49,11 @@ Setting Up Prisma with MongoDB
    4. Now that the database is set, open the project’s `.env` file and the MongoDB database connection string as:
 
      To use the created MongoDB, add the connection string to the `.env` file of your project. Here we are adding the parameter employee as the database name we will use with Prisma. Replace other parameters with your connection credentials and paste them in your `.env` file as the DATABASE_URL parameter as follows:
-     
-          `
+     ```
           DATABASE_URL = "mongodb+srv://username>:<password>@<cluster-url>employee/?retryWrites=true&w=majority"
-          `
-     
+     ```
 
-5. Install `@clerk/nextjs`
+### Install `@clerk/nextjs`
    
 
    Clerk's Next.js SDK has prebuilt components, React hooks, and helpers to make user authentication easier.
