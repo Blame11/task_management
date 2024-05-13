@@ -18,6 +18,7 @@ Clone the project
 3. Install react-hot-toast run `npm install react-hot-toast` or `yard add react-hot-toast`
 4. Run `npm install nextjs-toploader` to install nextJS toploader
 5. Run `npm install styled-components` to install styled components
+6. Run `npm install moment` to install moment
 
 ## Backend
 
@@ -53,6 +54,36 @@ Setting Up Prisma with MongoDB
           DATABASE_URL = "mongodb+srv://username>:<password>@<cluster-url>employee/?retryWrites=true&w=majority"
      ```
 
+     5. Now, Open `schema.prisma` and replace default with :
+     ```
+
+     generator client {
+       provider = "prisma-client-js"
+     }
+
+     datasource db {
+       provider = "mongodb"
+       url      = env("DATABASE_URL")
+     }
+
+
+     model Task{
+       id          String    @id @default(cuid()) @map("_id")
+       title       String
+       description String?
+       date        String
+       isCompleted Boolean   @default(false)
+       isImportant Boolean   @default(false)
+
+       createdAt   DateTime  @default(now()) @map("created_at")
+       updatedAt   DateTime  @default(now()) @updatedAt @map("updated_at")
+       userId      String    
+     }
+
+     ```
+
+     6. Finally Run `npx prisma generate` command
+   
 ### Install `@clerk/nextjs`
    
 
@@ -64,7 +95,7 @@ Setting Up Prisma with MongoDB
 
    Add the following keys to your .env.local file. These keys can always be retrieved from the API Keys page of your [Clerk Dashboard](https://dashboard.clerk.com).
    .env.local
-   ```
+   
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<public Key>
     CLERK_SECRET_KEY=<secret key>
 
@@ -74,16 +105,8 @@ Setting Up Prisma with MongoDB
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
     NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=/signin
 
-    ```
-
    
-
-
-
-
-Create a `.env` file and add your MongoDB connection string, for example: `DATABASE_URL=mongodb://localhost:27017/mytasks`
-    
-4. First, run the development server:
+###First, run the development server:
 
 ```bash
 npm run dev
@@ -94,8 +117,11 @@ pnpm dev
 # or
 bun dev
 ```
+###Now run the prisma studio:
+`npx prisma studio`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:5555](http://localhost:5555) with your browser to see the Prisma Studio.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the Web Application.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
