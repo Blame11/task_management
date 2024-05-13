@@ -118,6 +118,7 @@ pnpm dev
 bun dev
 ```
 ### Now run the prisma studio:
+
 `npx prisma studio`
 
 Open [http://localhost:5555](http://localhost:5555) with your browser to see the Prisma Studio.
