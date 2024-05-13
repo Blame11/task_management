@@ -23,33 +23,40 @@ Clone the project
 
 Setting Up Prisma with MongoDB
 
-1. To get started with Prisma Client, you need to install the @prisma/client package:
+1. Now we need the Node.js Prisma package available for this project. To install it, use the following command:
 
-     `npm install @prisma/client`
+     `npm install prisma`
+
+2. To get started with Prisma Client, you need to install the @prisma/client package:
+
+     `npm install @prisma/client --save-dev`
    
-2. Next, set up your Prisma project by creating your Prisma schema file with the following command:
+3. Finally, initialize Prisma by running the following command:
 
-    `npx prisma init`
+    `npx prisma init --datasource-provider mongodb`
 
     This command does two things:
 
     creates a new directory called prisma that contains a file called `schema.prisma`, which contains the Prisma schema with your database connection variable and schema models
     creates the `.env` file in the root directory of the project, which is used for defining environment variables (such as your database connection)
 
-3. Install `@clerk/nextjs`
+     ## Setting up MongoDB database
+
+   create a cloud database hosted by MongoDB Atlas 
+     
+
+5. Install `@clerk/nextjs`
+   
+
    Clerk's Next.js SDK has prebuilt components, React hooks, and helpers to make user authentication easier.
 
    To get started using Clerk with Next.js, add the SDK to your project:
 
     `npm install @clerk/nextjs`
 
-
-
-
-
-Create a `.env` file and add your MongoDB connection string, for example: `DATABASE_URL=mongodb://localhost:27017/mytasks`
-Create a `.env.local` file and add your clerk token, for example: 
-    `
+   Add the following keys to your .env.local file. These keys can always be retrieved from the API Keys page of your [Clerk Dashboard](https://dashboard.clerk.com).
+   .env.local
+   ```
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<public Key>
     CLERK_SECRET_KEY=<secret key>
 
@@ -59,7 +66,15 @@ Create a `.env.local` file and add your clerk token, for example:
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
     NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=/signin
 
-    `
+    ```
+
+   
+
+
+
+
+Create a `.env` file and add your MongoDB connection string, for example: `DATABASE_URL=mongodb://localhost:27017/mytasks`
+    
 4. First, run the development server:
 
 ```bash
