@@ -55,6 +55,8 @@ Setting Up Prisma with MongoDB
      ```
 
      5. Now, Open `schema.prisma` and replace default with :
+
+  
      ```
 
      generator client {
