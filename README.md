@@ -43,16 +43,16 @@ Setting Up Prisma with MongoDB
      ### Setting up MongoDB database
 
    create a cloud database hosted by [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database).
-   1. Head over to your MongoDB Atlas. Create a new cluster using the free    MO Sandbox to be able to build your online MongoDB cluster as a free tier. To set up this cluster, click connect to allow cluster access from anywhere.
+   1. Head over to your MongoDB Atlas. Create a new cluster using the free    MO Sandbox to be able to build your online MongoDB cluster as a free tier. To set up this cluster,         click connect to allow cluster access from anywhere.
    2. To connect the cluster with your database, create a database user if you don’t have one, ensuring you remember the username and the password.
-   3. Finally, choose the connection method. Select connect your application. This connects your application to your cluster using MongoDB’s native drivers. In this case, choose the Node.js drive and copy your pre-formatted connection string.
+   3. Finally, choose the connection method. Select connect your application. This connects your application to your cluster using MongoDB’s native drivers. In this case, choose        the Node.js drive and copy your pre-formatted connection string.
    4. Now that the database is set, open the project’s `.env` file and the MongoDB database connection string as:
 
-To use the created MongoDB, add the connection string to the `.env` file of your project. Here we are adding the parameter employee as the database name we will use with Prisma. Replace other parameters with your connection credentials and paste them in your `.env` file as the DATABASE_URL parameter as follows:
-
-`
-DATABASE_URL = "mongodb+srv://username>:<password>@<cluster-url>employee/?retryWrites=true&w=majority"
-`
+     To use the created MongoDB, add the connection string to the `.env` file of your project. Here we are adding the parameter employee as the database name we will use with Prisma. Replace other parameters with your connection credentials and paste them in your `.env` file as the DATABASE_URL parameter as follows:
+     
+          `
+          DATABASE_URL = "mongodb+srv://username>:<password>@<cluster-url>employee/?retryWrites=true&w=majority"
+          `
      
 
 5. Install `@clerk/nextjs`
