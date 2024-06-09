@@ -1,5 +1,6 @@
 import prisma from "@/app/utils/connect";
 import { auth } from "@clerk/nextjs";
+import { error } from "console";
 import { NextResponse } from "next/server";
 
 /**
@@ -97,3 +98,24 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: "Error deleting task", status: 500 });
   }
 }
+  export async function DELETE(req: Request, { params }: { params: { id: string}}) 
+  {
+   try {
+    const { userId } = auth();
+    const { id } = params;
+
+    if (!userId){
+      return NextResponse.json({ error: "Unauthorised", status: 401});
+    }
+
+    await prisma.task.delete({
+      where: {
+        id,
+        },
+      });
+      return NextResponse.json({ message: "Task Deleted Successfully"});
+   } catch (error){
+    console.log("ERROR DELETING TASK:",error);
+    return NextResponse.json({ error: "Error deleting Task"});
+   }        
+   } 
