@@ -4,6 +4,7 @@ import { edit, trash } from "@/app/utils/Icons";
 import React from "react";
 import styled from "styled-components";
 import formatDate from "@/app/utils/formatDate";
+import { PATCH } from "@/app/api/tasks/route";
 
 /**
  * This is the task item component. It is used to render a single task in the
@@ -23,7 +24,7 @@ interface Props {
 }
 
 function TaskItem({ title, description, date, isCompleted, id }: Props) {
-  const { theme, deleteTask, updateTask } = useGlobalState();
+  const { theme, deleteTask, updateTask, editTask } = useGlobalState();
 
   return (
     <TaskItemStyled theme={theme}>
@@ -65,7 +66,10 @@ function TaskItem({ title, description, date, isCompleted, id }: Props) {
           </button>
         )}
         {/* Edit the task */}
-        <button className="edit">{edit}</button>
+        <button className="edit"
+         onClick={() => editTask(id, title, description)}>
+          {edit}
+        </button>
         {/* Delete the task */}
         <button
           className="delete"

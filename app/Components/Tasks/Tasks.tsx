@@ -1,6 +1,6 @@
 "use client";
 import { useGlobalState } from "@/app/context/globalProvider";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CreateContent from "../Modals/CreateContent";
 import TaskItem from "../TaskItem/TaskItem";
@@ -20,6 +20,7 @@ interface Props {
  * @param {Props} props The component props.
  * @returns {JSX.Element} The tasks component.
  */
+
 function Tasks({ title, tasks }: Props) {
   const { theme, isLoading, openModal, modal } = useGlobalState();
 
